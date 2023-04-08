@@ -23,7 +23,7 @@ if __name__ == "__main__":
         if task["completed"]:
             NUMBER_OF_DONE_TASKS += 1
             TASK_TITLE.append(task["title"])
-    print(f"Employee {EMPLOYEE_NAME} is done with tasks "
+    print(f"Employee {EMPLOYEE_NAME} is done with tasks"
           f"({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
     for title in TASK_TITLE:
         print("\t ", title)
