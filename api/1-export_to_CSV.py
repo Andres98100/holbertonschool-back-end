@@ -37,6 +37,3 @@ if __name__ == "__main__":
                  "TASK_COMPLETED_STATUS": str(task["completed"]),
                  "TASK_TITLE": task["title"]}
             )
-
-    for title in TASK_TITLE:
-        print("\t ", title)
