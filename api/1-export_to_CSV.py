@@ -17,17 +17,12 @@ if __name__ == "__main__":
     data = EMPLOYEE_TODOS.json()
 
     EMPLOYEE_NAME = data[0]["user"]["name"]
-    TOTAL_NUMBER_OF_TASKS = len(data)
-    NUMBER_OF_DONE_TASKS = 0
-    TASK_TITLE = []
     fileName = f"{EMPLOYEE_ID}.csv"
-    fieldnames = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
+
     with open(fileName, "w", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=fieldnames,
-                                quoting=csv.QUOTE_NONNUMERIC)
+        writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
         for task in data:
             writer.writerow(
-                {"USER_ID": EMPLOYEE_ID, "USERNAME": EMPLOYEE_NAME,
-                 "TASK_COMPLETED_STATUS": str(task["completed"]),
-                 "TASK_TITLE": task["title"]}
+                [EMPLOYEE_ID, EMPLOYEE_NAME, str(task["completed"]),
+                 task["title"]]
             )
