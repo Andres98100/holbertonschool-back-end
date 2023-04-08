@@ -20,15 +20,9 @@ if __name__ == "__main__":
     TOTAL_NUMBER_OF_TASKS = len(data)
     NUMBER_OF_DONE_TASKS = 0
     TASK_TITLE = []
-    for task in data:
-        if task["completed"]:
-            NUMBER_OF_DONE_TASKS += 1
-            TASK_TITLE.append(task["title"])
-    print(f"Employee {EMPLOYEE_NAME} is done with tasks"
-          f"({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
     fileName = f"{EMPLOYEE_ID}.csv"
     fieldnames = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
-    with open(fileName, "w") as file:
+    with open(fileName, "w", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames,
                                 quoting=csv.QUOTE_NONNUMERIC)
         for task in data:
